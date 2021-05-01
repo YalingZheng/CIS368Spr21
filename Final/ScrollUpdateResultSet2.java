@@ -6,13 +6,13 @@ public class ScrollUpdateResultSet2 {
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
 		// Load the JDBC driver
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		System.out.println("Driver loaded");
+		//System.out.println("Driver loaded");
 
 		// Connect to a database
 		Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/mydb", "root",
 				"8zyfBU2qmt2BpEB");
 		connection.setAutoCommit(true);
-		System.out.println("Database connected");
+		//System.out.println("Database connected");
 
 		// Get a new statement for the current connection
 		/*
@@ -34,12 +34,13 @@ public class ScrollUpdateResultSet2 {
 		System.out.println("\nBefore update ");
 		displayResultSet(resultSet);
 
+		
 		// Update the second row
 		resultSet.absolute(2); // Move cursor to the second row
 		resultSet.updateString("state", "New S"); // Update the column
 		resultSet.updateString("capital", "New C"); // Update the column
 		resultSet.updateRow(); // Update the row in the data source
-
+		
 		// Insert after the last row
 		resultSet.last();
 		resultSet.moveToInsertRow(); // Move cursor to the insert row
@@ -58,6 +59,7 @@ public class ScrollUpdateResultSet2 {
 
 		// Close the connection
 		resultSet.close();
+		
 	}
 
 	private static void displayResultSet(ResultSet resultSet) throws SQLException {
