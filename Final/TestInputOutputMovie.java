@@ -93,10 +93,8 @@ public class TestInputOutputMovie {
 		movie3.setActors(new ArrayList<String>(Arrays.asList(" Kelly Marie Tran", "Awkwafina", "Gemma Chan")));
 		movie3.setRating(7.8);
 
-		try {
-			FileOutputStream file = new FileOutputStream("Exercise17_06.dat ");
-
-			ObjectOutputStream output = new ObjectOutputStream(file);
+		try (FileOutputStream file = new FileOutputStream("Exercise17_06.dat ");
+				ObjectOutputStream output = new ObjectOutputStream(file);){			
 
 			output.writeObject(movie1);
 			output.writeObject(movie2);
@@ -113,9 +111,7 @@ public class TestInputOutputMovie {
 			System.out.println(readMovie1.toString());
 			System.out.println(readMovie2.toString());
 			System.out.println(readMovie3.toString());
-
-			output.close();
-			input.close();
+			
 		} catch (IOException e) {
 			e.getStackTrace();
 		}
